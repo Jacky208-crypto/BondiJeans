@@ -1,107 +1,200 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bondi Jeans</title>
+<title>Bondi Escolar</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="bondijeans.css">
 </head>
 <body>
 
+<!-- ============ NAV ============ -->
 <nav>
   <div class="wrap nav-in">
-    <a href="#" class="brand">Bondi Jeans</a>
-    <div class="nav-links">
-      <a href="#shop">Schoolwear</a>
-      <a href="#shop">Shop All</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+    <a href="#top" class="brand">
+      <span class="brand-name">Bondi</span>
+      <span class="brand-sub" data-i18n="brand_sub">Escolar</span>
+    </a>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#top" class="active" data-i18n="nav_home">Inicio</a>
+      <a href="#coleccion" data-i18n="nav_collection">Colección</a>
+      <a href="#nosotros" data-i18n="nav_about">Nosotros</a>
+      <a href="#tallas" data-i18n="nav_sizes">Guía de Tallas</a>
+      <a href="#contacto" data-i18n="nav_contact">Contacto</a>
+    </div>
+
+    <div class="nav-tools">
+      <button class="lang-toggle" id="langToggle" aria-label="Language">
+        <span class="lang-opt" data-lang="es">ES</span>
+        <span class="lang-sep">/</span>
+        <span class="lang-opt" data-lang="en">EN</span>
+      </button>
+      <button class="icon-btn" aria-label="Buscar" title="">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </button>
+      <!--<button class="icon-btn" aria-label="Cuenta" title="">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+      </button>-->
+      <!--<button class="icon-btn cart" aria-label="Bolsa" title="">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="cart-count">0</span>
+      </button>-->
     </div>
   </div>
 </nav>
- 
-<header class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <p class="eyebrow">Back to School 2026</p>
-      <h1>Schoolwear<br>that survives<br><b>the school year.</b></h1>
-      <p>Hard-wearing, easy-care uniforms built to take a beating — plus the everyday essentials to go with them.</p>
-      <div class="actions">
-        <a href="#shop" class="btn btn-solid">Shop schoolwear</a>
-        <a href="#about" class="btn btn-ghost">Our story</a>
-      </div>
-      <div class="hero-meta">
-        <div><b>Tough</b><span>Reinforced seams</span></div>
-        <div><b>Easy-care</b><span>Machine washable</span></div>
-        <div><b>Sizes 4–16</b><span>Kids to teens</span></div>
-      </div>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="hero-photo"></div>
+  <div class="hero-veil"></div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow" data-i18n="hero_eyebrow">De la escuela a la universidad</p>
+    <div class="hero-rule"></div>
+    <h1 class="hero-word">Bondi</h1>
+    <p class="hero-tag" data-i18n="hero_tag">Te acompaña en cada etapa</p>
+    <div class="hero-icon">
+      <svg viewBox="0 0 200 240" fill="none" stroke="currentColor" stroke-width="3">
+        <path d="M62 45 L86 32 L100 44 L114 32 L138 45 L150 72 L132 84 L132 205 L68 205 L68 84 L50 72 Z"/>
+        <path d="M86 32 L100 60 L114 32"/><path d="M100 44 L100 92"/>
+        <text x="100" y="160" font-size="34" fill="currentColor" stroke="none" text-anchor="middle" font-family="Fraunces, serif">B</text>
+      </svg>
     </div>
-    <div class="hero-img">
-      <div class="ph"><svg viewBox="0 0 200 240" fill="none" stroke="#161513" stroke-width="2"><path d="M70 40 L88 30 L100 42 L112 30 L130 40 L150 60 L135 78 L135 210 L65 210 L65 78 L50 60 Z"/><path d="M88 30 L100 60 L112 30"/><path d="M100 60 L100 205"/></svg></div>
-      <!-- swap placeholder: add a hero image URL below -->
-      <!-- <img src="YOUR_HERO_PHOTO_URL" alt=""> -->
-    </div>
+    <a href="#coleccion" class="btn btn-solid" data-i18n="hero_cta">Descubre la colección</a>
   </div>
 </header>
- 
-<section class="sec" id="shop">
+
+<!-- ============ FEATURE STRIP ============ -->
+<section class="features">
+  <div class="wrap feat-grid">
+    <div class="feat">
+      <span class="feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 14a5 5 0 0 1 10 0"/><path d="M7 14a5 5 0 0 0 10 0"/><path d="M12 4v3M9 6l1.5 2M15 6l-1.5 2"/></svg></span>
+      <div><h4 data-i18n="feat1_t">Algodón Premium</h4><p data-i18n="feat1_d">Suave, resistente y cómodo</p></div>
+    </div>
+    <div class="feat">
+      <span class="feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3Z"/></svg></span>
+      <div><h4 data-i18n="feat2_t">Calidad que dura</h4><p data-i18n="feat2_d">Diseñados para el uso diario y lavado frecuente</p></div>
+    </div>
+    <div class="feat">
+      <span class="feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 4l-4 5 3 2 1 9h8l1-9 3-2-4-5-4 3-4-3Z"/></svg></span>
+      <div><h4 data-i18n="feat3_t">Corte perfecto</h4><p data-i18n="feat3_d">Comodidad y estilo en cada etapa</p></div>
+    </div>
+    <div class="feat">
+      <span class="feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19c4-1 9-5 13-13-7 1-12 4-13 9 0 0 0 4 0 4Z"/><path d="M5 19c2-4 5-6 9-8"/></svg></span>
+      <div><h4 data-i18n="feat4_t">Responsables</h4><p data-i18n="feat4_d">Comprometidos con un futuro sostenible</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COLLECTION ============ -->
+<section class="sec" id="coleccion">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">Uniform &amp; Beyond</p>
-      <h2>Schoolwear &amp; everyday essentials</h2>
+      <p class="eyebrow" data-i18n="coll_eyebrow">Uniforme y más</p>
+      <h2 data-i18n="coll_title">La colección</h2>
+      <p class="sec-lead" data-i18n="coll_lead">Uniforme escolar resistente y prendas esenciales para el día a día. Una sola marca, hecha para durar.</p>
       <div class="filters" id="filters"></div>
     </div>
     <div class="grid" id="grid"></div>
   </div>
 </section>
- 
-<section class="about" id="about">
+
+<!-- ============ NOSOTROS ============ -->
+<section class="about" id="nosotros">
   <div class="wrap about-grid">
-    <div class="about-img">
-      <svg viewBox="0 0 200 240" fill="none" stroke="#161513" stroke-width="2"><path d="M65 70 Q65 50 100 50 Q135 50 135 70 L140 200 L60 200 Z"/><path d="M85 70 L85 130 L115 130 L115 70"/><path d="M76 50 Q70 35 86 36 M124 50 Q130 35 114 36"/></svg>
-    </div>
+    <div class="about-img"></div>
     <div>
-      <p class="eyebrow">Our Story</p>
-      <h2>The schoolwear families rely on.</h2>
-      <p>Bondi Jeans began making hard-wearing denim — and that same obsession with durability now goes into our schoolwear. Reinforced knees, double-stitched seams and easy-care fabric that holds up to playgrounds, washing machines and growth spurts.</p>
-      <p>Beyond the uniform, we make the casual staples to round out the wardrobe. One label, built to last.</p>
-      <a href="#shop" class="btn btn-ghost" style="margin-top:14px">Browse the range</a>
+      <p class="eyebrow" data-i18n="about_eyebrow">Nosotros</p>
+      <h2 data-i18n="about_title">El uniforme en el que las familias confían.</h2>
+      <p data-i18n="about_p1">Bondi nació haciendo denim resistente — y esa misma obsesión por la durabilidad va hoy en nuestro uniforme escolar. Rodillas reforzadas, costuras dobles y telas de fácil cuidado que aguantan el patio, la lavadora y los estirones.</p>
+      <p data-i18n="about_p2">Más allá del uniforme, hacemos las prendas básicas para completar el guardarropa. Una sola marca, hecha para durar.</p>
+      <a href="#coleccion" class="btn btn-ghost" data-i18n="about_cta">Ver la colección</a>
     </div>
   </div>
 </section>
- 
-<footer id="contact">
+
+<!-- ============ SIZE GUIDE ============ -->
+<section class="tallas" id="tallas">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="sizes_eyebrow">Guía de tallas</p>
+    <h2 data-i18n="sizes_title">Encuentra la talla perfecta</h2>
+    <div class="size-table-wrap">
+      <table class="size-table">
+        <thead>
+          <tr>
+            <th data-i18n="sizes_col_size">Talla</th>
+            <th data-i18n="sizes_col_age">Edad</th>
+            <th data-i18n="sizes_col_height">Altura (cm)</th>
+            <th data-i18n="sizes_col_chest">Pecho (cm)</th>
+          </tr>
+        </thead>
+        <tbody id="sizeBody"></tbody>
+      </table>
+    </div>
+    <p class="sizes-note" data-i18n="sizes_note">¿Entre dos tallas? Recomendamos elegir la mayor para dejar espacio para crecer.</p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer id="contacto">
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="foot-brand">Bondi Jeans</div>
-        <p>Hard-wearing schoolwear and everyday essentials. Built to last.</p>
+        <div class="foot-brand"><span class="brand-name">Bondi</span> <span class="brand-sub" data-i18n="brand_sub">Escolar</span></div>
+        <p data-i18n="foot_tagline">Uniforme escolar resistente y prendas esenciales para el día a día. Hecho para durar.</p>
       </div>
       <div class="foot-col">
-        <h4>Shop</h4>
-        <a href="#shop">Schoolwear</a><a href="#shop">PE &amp; Sport</a><a href="#shop">Knitwear</a><a href="#shop">Accessories</a>
+        <h4 data-i18n="foot_shop">Colección</h4>
+        <a href="#coleccion" data-i18n="cat_Schoolwear">Uniforme</a>
+        <a href="#coleccion" data-i18n="cat_PE">Deporte</a>
+        <a href="#coleccion" data-i18n="cat_Knitwear">Punto</a>
+        <a href="#coleccion" data-i18n="cat_Accessories">Accesorios</a>
       </div>
       <div class="foot-col">
-        <h4>Help</h4>
-        <a href="#">Size Guide</a><a href="#">Shipping</a><a href="#">Returns</a><a href="#">Contact</a>
+        <h4 data-i18n="foot_help">Ayuda</h4>
+        <a href="#tallas" data-i18n="nav_sizes">Guía de Tallas</a>
+        <a href="#" data-i18n="foot_shipping">Envíos</a>
+        <a href="#" data-i18n="foot_returns">Devoluciones</a>
+        <a href="#contacto" data-i18n="nav_contact">Contacto</a>
       </div>
       <div class="foot-col">
-        <h4>Follow</h4>
+        <h4 data-i18n="foot_follow">Síguenos</h4>
         <a href="#">Instagram</a><a href="#">Facebook</a><a href="#">TikTok</a>
       </div>
     </div>
     <div class="foot-bot">
-      <span>© 2026 Bondi Jeans</span>
-      <span>Privacy · Terms</span>
+      <span data-i18n="foot_copy">© 2026 Bondi Escolar</span>
+      <span data-i18n="foot_legal">Privacidad · Términos</span>
     </div>
   </div>
 </footer>
- 
+
+<!-- ============ TRUST BAR ============ -->
+<div class="trust">
+  <div class="wrap trust-in">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>
+      <span data-i18n="trust1">Envíos a todo el país</span>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 9a8 8 0 0 1 14-4l2 2"/><path d="M20 5v4h-4"/><path d="M20 15a8 8 0 0 1-14 4l-2-2"/><path d="M4 19v-4h4"/></svg>
+      <span data-i18n="trust2">Cambios y devoluciones fáciles</span>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+      <span data-i18n="trust3">Pagos 100% seguros</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MODAL ============ -->
 <div class="overlay" id="overlay">
   <div class="modal" id="modal"></div>
 </div>
+
+<script src="bondijeans.js"></script>
 </body>
 </html>
