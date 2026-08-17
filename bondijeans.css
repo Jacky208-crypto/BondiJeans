@@ -10,6 +10,29 @@
   --mute:#6b7488;          /* muted gray-blue */
   --line:#e4e6ee;
 }
+
+/* ============ COLLECTION PHOTOS ============
+   Drop a real photo in for any product below — paste the image
+   URL (or a local path like "images/camisa-oxford.jpg") between
+   the quotes, keep the quotes. Leave a value as '' to keep the
+   default line-art icon for that item. Nothing else needs to
+   change; the collection grid picks these up automatically. */
+:root{
+  --photo-shirt-oxford:    'images/tshirt.jpeg';  /* Camisa Oxford Clásica / Classic Oxford School Shirt */
+  --photo-skirt-pleated:   'images/skirt.jpeg';  /* Falda Escolar Plisada / Pleated School Skirt */
+  --photo-trousers-slim:   '';  /* Pantalón Escolar Slim / Slim School Trousers */
+  --photo-blazer:          '';  /* Blazer Escolar Estructurado / Structured School Blazer */
+  --photo-jumper-vneck:    '';  /* Jersey Escolar de Pico / V-Neck School Jumper */
+  --photo-cardigan:        '';  /* Cárdigan Escolar / School Cardigan */
+  --photo-pe-polo:         '';  /* Polo de Deporte / PE Polo Shirt */
+  --photo-pe-shorts:       '';  /* Pantalón Corto Deportivo / Sports Shorts */
+  --photo-pe-jacket:       '';  /* Chaqueta de Chándal / Track Jacket */
+  --photo-tie:             '';  /* Corbata Escolar / School Tie */
+  --photo-backpack:        '';  /* Mochila Escolar Reforzada / Reinforced School Backpack */
+  --photo-knit-headland:   '';  /* Jersey Headland / Headland Knit */
+  --photo-knit-saltwash:   '';  /* Camiseta Salt Wash / Salt Wash Tee */
+}
+
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
@@ -53,22 +76,31 @@ nav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var
 .lang-sep{color:var(--line)}
 
 /* ============ HERO ============ */
-.hero{position:relative;min-height:660px;display:grid;place-items:center;overflow:hidden;text-align:center}
-.hero-photo{position:absolute;inset:0;background:
-   linear-gradient(120deg,#1c2b4d 0%,#26396a 45%,#3a5085 100%);
-   background-size:cover;background-position:center 30%}
-.hero-photo::after{content:"";position:absolute;inset:0;
-   background-image:url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1800&q=80");
-   background-size:cover;background-position:center 25%;opacity:.5;mix-blend-mode:luminosity}
+.hero{position:relative;min-height:660px;display:grid;place-items:center;overflow:hidden;text-align:center;background:#fff}
+.hero-photo{position:absolute;inset:0;background:#fff}
+.hero-photo::before{content:"";position:absolute;inset:0;left:0;width:54%;
+   background-image:url("images/teensgroup.jpeg");
+   background-size:cover;background-position:center 22%}
+.hero-photo::after{content:"";position:absolute;inset:0;left:auto;right:0;width:54%;
+   background-image:url("images/kidsgroup.jpeg");
+   background-size:cover;background-position:center 20%}
 .hero-veil{position:absolute;inset:0;background:
-   radial-gradient(ellipse at center,rgba(20,32,58,.35) 0%,rgba(20,32,58,.62) 100%),
-   linear-gradient(180deg,rgba(20,32,58,.45),rgba(20,32,58,.45))}
-.hero-inner{position:relative;z-index:2;color:#fff;padding:90px 22px}
-.hero-eyebrow{font-size:13px;letter-spacing:.34em;text-transform:uppercase;font-weight:600;color:#fff}
-.hero-rule{width:46px;height:2px;background:rgba(255,255,255,.7);margin:20px auto}
-.hero-word{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(74px,12vw,150px);line-height:.92;letter-spacing:-.02em;color:#fff;margin:6px 0}
-.hero-tag{font-size:clamp(17px,2vw,23px);letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:#fff;margin-top:8px}
-.hero-icon{margin:30px auto 34px;width:74px;color:rgba(255,255,255,.92)}
+   linear-gradient(90deg,
+     rgba(255,255,255,0) 0%,
+     rgba(255,255,255,0) 14%,
+     rgba(255,255,255,.5) 30%,
+     rgba(255,255,255,.94) 41%,
+     rgba(255,255,255,1) 50%,
+     rgba(255,255,255,.94) 59%,
+     rgba(255,255,255,.5) 70%,
+     rgba(255,255,255,0) 86%,
+     rgba(255,255,255,0) 100%)}
+.hero-inner{position:relative;z-index:2;color:var(--navy);padding:90px 22px}
+.hero-eyebrow{font-size:13px;letter-spacing:.34em;text-transform:uppercase;font-weight:600;color:var(--navy)}
+.hero-rule{width:46px;height:2px;background:var(--navy);opacity:.55;margin:20px auto}
+.hero-word{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(74px,12vw,150px);line-height:.92;letter-spacing:-.02em;color:var(--navy);margin:6px 0}
+.hero-tag{font-size:clamp(17px,2vw,23px);letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:var(--navy);margin-top:8px}
+.hero-icon{margin:30px auto 34px;width:74px;color:var(--navy)}
 .hero-icon svg{width:100%}
 
 /* ============ BUTTONS ============ */
@@ -77,7 +109,7 @@ nav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var
   padding:16px 38px;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
   cursor:pointer;transition:.22s;font-family:inherit;border:1.5px solid var(--navy);background:var(--navy);color:#fff
 }
-.hero .btn-solid{border-color:#fff;background:var(--navy);color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.hero .btn-solid{border-color:var(--navy);background:var(--navy);color:#fff;box-shadow:0 10px 30px rgba(28,43,77,.18)}
 .hero .btn-solid:hover{background:#fff;color:var(--navy)}
 .btn-solid:hover{background:transparent;color:var(--navy)}
 .btn-ghost{background:transparent;color:var(--navy)}
@@ -201,6 +233,17 @@ footer{padding:74px 0 40px;background:#fff;border-top:1px solid var(--line)}
   .nav-tools{gap:8px}
   .lang-toggle{padding:6px 10px}
   .hero{min-height:540px}
+  .hero-photo::before,.hero-photo::after{width:30%}
+  .hero-veil{background:
+     linear-gradient(90deg,
+       rgba(255,255,255,0) 0%,
+       rgba(255,255,255,.55) 10%,
+       rgba(255,255,255,.96) 22%,
+       rgba(255,255,255,1) 50%,
+       rgba(255,255,255,.96) 78%,
+       rgba(255,255,255,.55) 90%,
+       rgba(255,255,255,0) 100%)}
+  .hero-eyebrow{letter-spacing:.16em;font-size:11.5px}
   .grid{grid-template-columns:1fr 1fr;gap:28px 16px}
   .modal{grid-template-columns:1fr;max-height:90vh}
   .m-media{min-height:260px}

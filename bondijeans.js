@@ -69,58 +69,58 @@ const I18N = {
 
 /* ---------- PRODUCTS (bilingual) ---------- */
 const PRODUCTS = [
-  {key:"Schoolwear", shape:"shirt", tag:"top", img:"",
+  {key:"Schoolwear", shape:"shirt", tag:"top", img:"", slug:"shirt-oxford",
    name:{es:"Camisa Oxford Clásica", en:"Classic Oxford School Shirt"},
    desc:{es:"Camisa oxford de planchado fácil con cuello reforzado y costuras dobles. Mantiene su forma lavado tras lavado. Disponible en blanco y azul cielo.",
          en:"A crisp easy-iron oxford shirt with a reinforced collar and double-stitched seams. Holds its shape wash after wash. Available in white and sky blue."}},
-  {key:"Schoolwear", shape:"skirt", img:"",
+  {key:"Schoolwear", shape:"skirt", img:"", slug:"skirt-pleated",
    name:{es:"Falda Escolar Plisada", en:"Pleated School Skirt"},
    desc:{es:"Falda de tablas en una mezcla poli-lana resistente a las arrugas, con cintura interior ajustable que crece con tu hijo.",
          en:"A knife-pleated skirt in a tough, crease-resistant poly-wool blend with an adjustable inner waistband to grow with your child."}},
-  {key:"Schoolwear", shape:"trousers", img:"",
+  {key:"Schoolwear", shape:"trousers", img:"", slug:"trousers-slim",
    name:{es:"Pantalón Escolar Slim", en:"Slim School Trousers"},
    desc:{es:"Pantalón resistente con rodillas reforzadas, media cintura elástica y acabado que repele los líquidos.",
          en:"Sturdy flat-front trousers with reinforced knees, a half-elastic waist and a teflon-treated finish that shrugs off spills."}},
-  {key:"Schoolwear", shape:"blazer", tag:"new", img:"",
+  {key:"Schoolwear", shape:"blazer", tag:"new", img:"", slug:"blazer",
    name:{es:"Blazer Escolar Estructurado", en:"Structured School Blazer"},
    desc:{es:"Blazer elegante y resistente con forro suave, bolsillo para insignia y acabado antimanchas. La pieza clave del uniforme.",
          en:"A smart, hard-wearing blazer with a soft-touch lining, badge-ready chest pocket and stain-resistant finish. The cornerstone of the uniform."}},
-  {key:"Schoolwear", shape:"sweater", img:"",
+  {key:"Schoolwear", shape:"sweater", img:"", slug:"jumper-vneck",
    name:{es:"Jersey Escolar de Pico", en:"V-Neck School Jumper"},
    desc:{es:"Jersey suave resistente al pilling con puños y bajo acanalados. Cálido, transpirable y hecho para el día a día.",
          en:"A soft, pill-resistant knit jumper with ribbed cuffs and hem. Warm, breathable and built for everyday classroom wear."}},
-  {key:"Schoolwear", shape:"sweater", img:"",
+  {key:"Schoolwear", shape:"sweater", img:"", slug:"cardigan",
    name:{es:"Cárdigan Escolar", en:"School Cardigan"},
    desc:{es:"Cárdigan de botones de fácil cuidado en punto de algodón duradero. Una capa cálida para las mañanas frías.",
          en:"An easy-care button cardigan in a durable cotton-blend knit. A cosy layer for cooler mornings and draughty classrooms."}},
 
-  {key:"PE", shape:"polo", img:"",
+  {key:"PE", shape:"polo", img:"", slug:"pe-polo",
    name:{es:"Polo de Deporte", en:"PE Polo Shirt"},
    desc:{es:"Polo transpirable que absorbe la humedad, con cuello reforzado. De secado rápido y hecho para el campo y la cancha.",
          en:"A breathable moisture-wicking polo with a reinforced collar. Quick-drying and built for the field and the court."}},
-  {key:"PE", shape:"shorts", img:"",
+  {key:"PE", shape:"shorts", img:"", slug:"pe-shorts",
    name:{es:"Pantalón Corto Deportivo", en:"Sports Shorts"},
    desc:{es:"Pantalón corto de deporte ligero de doble capa con cintura elástica y slip interior. Resistente y de secado rápido.",
          en:"Lightweight twin-layer PE shorts with an elastic waist and inner brief. Hard-wearing and quick to dry."}},
-  {key:"PE", shape:"jacket", img:"",
+  {key:"PE", shape:"jacket", img:"", slug:"pe-jacket",
    name:{es:"Chaqueta de Chándal", en:"Track Jacket"},
    desc:{es:"Chaqueta de entrenamiento con cremallera en tejido afelpado, cuello alto y bolsillos con cierre.",
          en:"A zip-through training jacket in a brushed-back fabric with a stand collar and zip pockets."}},
 
-  {key:"Accessories", shape:"tie", img:"",
+  {key:"Accessories", shape:"tie", img:"", slug:"tie",
    name:{es:"Corbata Escolar (Pack de 2)", en:"School Tie (Pack of 2)"},
    desc:{es:"Par de corbatas elásticas pre-anudadas en un tejido antimanchas. Fáciles para manos pequeñas, elegantes todo el día.",
          en:"A pair of pre-knotted elastic ties in a stain-resistant weave. Easy for little hands, smart all day."}},
-  {key:"Accessories", shape:"backpack", img:"",
+  {key:"Accessories", shape:"backpack", img:"", slug:"backpack",
    name:{es:"Mochila Escolar Reforzada", en:"Reinforced School Backpack"},
    desc:{es:"Mochila amplia resistente al agua con funda acolchada para portátil, base reforzada y tirantes ergonómicos.",
          en:"A roomy water-resistant backpack with a padded laptop sleeve, reinforced base and ergonomic straps."}},
 
-  {key:"Knitwear", shape:"sweater", img:"",
+  {key:"Knitwear", shape:"sweater", img:"", slug:"knit-headland",
    name:{es:"Jersey Headland", en:"Headland Knit"},
    desc:{es:"Jersey de cuello redondo en lana de cordero con puños acanalados y un tacto vivido. Cálido sin volumen.",
          en:"A lambswool crewneck with ribbed cuffs and a lived-in handle. Warm without the bulk."}},
-  {key:"Knitwear", shape:"sweater", img:"",
+  {key:"Knitwear", shape:"sweater", img:"", slug:"knit-saltwash",
    name:{es:"Camiseta Salt Wash", en:"Salt Wash Tee"},
    desc:{es:"Camiseta de algodón pesado de 240gsm con corte relajado y acabado lavado suave. El básico de fin de semana.",
          en:"Heavyweight 240gsm cotton tee with a relaxed fit and a soft garment-washed finish. The off-duty staple."}},
@@ -166,11 +166,21 @@ const overlay = document.getElementById('overlay');
 const modal   = document.getElementById('modal');
 const sizeBody= document.getElementById('sizeBody');
 
-/* ---------- MEDIA ---------- */
+/* ---------- MEDIA ----------
+   Photo URLs are read from CSS custom properties (see the
+   "COLLECTION PHOTOS" block at the top of bondijeans.css) so you
+   only ever have to edit the CSS file to drop in a real photo.
+   Falls back to a product's own `img` field, then to the line-art icon. */
+function cssPhoto(slug){
+  if(!slug) return '';
+  const raw=getComputedStyle(document.documentElement).getPropertyValue('--photo-'+slug);
+  return raw ? raw.trim().replace(/^['"]|['"]$/g,'') : '';
+}
 function media(p){
   const ph=`<div class="ph"><svg viewBox="0 0 200 240" fill="none" stroke="currentColor" stroke-width="2">${SHAPES[p.shape]||SHAPES.shirt}</svg></div>`;
   const nm=p.name[lang];
-  const im=p.img?`<img src="${p.img}" alt="${nm}" onerror="this.remove()">`:'';
+  const src=cssPhoto(p.slug)||p.img;
+  const im=src?`<img src="${src}" alt="${nm}" onerror="this.remove()">`:'';
   return ph+im;
 }
 
