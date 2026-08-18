@@ -20,7 +20,7 @@
 :root{
   --photo-shirt-oxford:    'images/tshirt.jpeg';  /* Camisa Oxford Clásica / Classic Oxford School Shirt */
   --photo-skirt-pleated:   'images/skirt.jpeg';  /* Falda Escolar Plisada / Pleated School Skirt */
-  --photo-trousers-slim:   '';  /* Pantalón Escolar Slim / Slim School Trousers */
+  --photo-trousers-slim:   'images/trousers.jpeg';  /* Pantalón Escolar Slim / Slim School Trousers */
   --photo-blazer:          '';  /* Blazer Escolar Estructurado / Structured School Blazer */
   --photo-jumper-vneck:    '';  /* Jersey Escolar de Pico / V-Neck School Jumper */
   --photo-cardigan:        '';  /* Cárdigan Escolar / School Cardigan */
